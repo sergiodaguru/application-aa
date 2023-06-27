@@ -1,5 +1,5 @@
 // Fetch config variables defined in window.*
-const envSettings = props;
+const envSettings = window;
 
 export const configuration = {
   seed: envSettings.SEED,

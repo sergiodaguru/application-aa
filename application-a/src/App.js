@@ -6,12 +6,12 @@ export default function LogComponent() {
 
   const [counter, setCounter] = useState(0);
     const intervalIDRef = React.useRef(null);
-
+const msg = configuration.seed;
 
   //increase counter
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
-    console.log("Test " + { configuration.seed } + " Message " + counter);
+    console.log("Test " +  msg + " Message " + counter);
     setCounter(count => count + 1);
         }, 3000);
   };
@@ -28,9 +28,8 @@ export default function LogComponent() {
   };
 
   return (
-  <script src="%PUBLIC_URL%/environment.js"></script>
-    <div className="counter">
-      <h1>React Counter</h1>
+      <div className="counter">
+      <h1>{ configuration.appl } v4</h1>
       <p>Test { configuration.seed } message </p>
       <span className="counter__output">{counter}</span>
       <div className="btn__container">
