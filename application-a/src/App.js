@@ -7,14 +7,16 @@ export default function LogComponent() {
   const [counter, setCounter] = useState(0);
   const intervalIDRef = React.useRef(null);
   const msg = configuration.seed;
+
+    const message = "Test " +  msg + " Message " + counter;
   const url = configuration.fetchUrl+"/message?content="+message;
 
   //increase counter
+  console.log("url:"+url)
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
-    const message = "Test " +  msg + " Message " + counter;
     console.log(message);
-    fetch(url)
+    fetch(url, {mode:'cors'})
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
