@@ -8,8 +8,9 @@ objects:
   data:
     environment.js: |
       // set some defaults here
-      props.SEED = "ABC"
-      props.APPL = "Application A v4.0"
+      window.SEED = "ABC"
+      windowls.APPL = "Application A v4.0"
+      window.FETCH_URL = "http://application-aa-server.cloud-refresh-ephem-42lwq-59ac7c5b6a0c144b63d34c29d8ad6aa7-0000.us-south.containers.appdomain.cloud"
 - apiVersion: build.openshift.io/v1
   kind: BuildConfig
   metadata:

@@ -3,5 +3,6 @@ const envSettings = window;
 
 export const configuration = {
   seed: envSettings.SEED,
-  appl: envSettings.APPL
+  appl: envSettings.APPL,
+  fetchUrl: envSettings.FETCH_URL
 }

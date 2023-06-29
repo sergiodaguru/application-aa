@@ -11,7 +11,11 @@ const msg = configuration.seed;
   //increase counter
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
-    console.log("Test " +  msg + " Message " + counter);
+    const message = "Test " +  msg + " Message " + counter;
+    console.log(message);
+    fetch(configuration.fetchUrl)
+            .then(res => res.text())
+            .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
         }, 3000);
   };
