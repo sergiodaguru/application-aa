@@ -13,7 +13,7 @@ const msg = configuration.seed;
   intervalIDRef.current = setInterval(() => {
     const message = "Test " +  msg + " Message " + counter;
     console.log(message);
-    fetch(configuration.fetchUrl)
+    fetch(configuration.fetchUrl+"/message?content="+message)
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
