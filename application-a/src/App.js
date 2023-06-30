@@ -2,13 +2,23 @@ import "./App.css"
 import React, { useState } from 'react';
 import { configuration } from './config.js';
 
+  const cors=require("cors");
+  const corsOptions ={
+      origin:'*',
+      credentials:true,            //access-control-allow-credentials:true
+      optionSuccessStatus:200,
+  }
+
+
+
 export default function LogComponent() {
 
   const [counter, setCounter] = useState(0);
   const intervalIDRef = React.useRef(null);
   const msg = configuration.seed;
+  React.use(cors(corsOptions));
 
-    const message = "Test " +  msg + " Message " + counter;
+  const message = "Test " +  msg + " Message " + counter;
   const url = "https://application-aa-server.cloud-refresh-ephem-42lwq-59ac7c5b6a0c144b63d34c29d8ad6aa7-0000.us-south.containers.appdomain.cloud"+"/message?content="+message;
 
   //increase counter
@@ -16,7 +26,7 @@ export default function LogComponent() {
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
     console.log(message);
-    fetch(url, {mode:'no-cors'})
+    fetch(url, {mode:'cors'})
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
