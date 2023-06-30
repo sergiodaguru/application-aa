@@ -21,7 +21,6 @@ export default function LogComponent() {
   const message = "Test " +  msg + " Message " + counter;
   const url = "https://application-aa-server.cloud-refresh-ephem-42lwq-59ac7c5b6a0c144b63d34c29d8ad6aa7-0000.us-south.containers.appdomain.cloud"+"/message?content="+message;
 
-
   let headers = new Headers();
 
   headers.append('Content-Type', 'application/json');
