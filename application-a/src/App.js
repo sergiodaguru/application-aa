@@ -16,7 +16,7 @@ export default function LogComponent() {
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
     console.log(message);
-    fetch(url, {mode:'cors'})
+    fetch(url, {mode:'no-cors'})
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
