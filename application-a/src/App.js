@@ -21,21 +21,12 @@ export default function LogComponent() {
   const message = "Test " +  msg + " Message " + counter;
   const url = "https://application-aa-server.cloud-refresh-ephem-42lwq-59ac7c5b6a0c144b63d34c29d8ad6aa7-0000.us-south.containers.appdomain.cloud"+"/message?content="+message;
 
-  let headers = new Headers();
-
-  headers.append('Content-Type', 'application/json');
-  headers.append('Accept', 'application/json');
-
-  headers.append('Access-Control-Allow-Origin', 'https://application-aa-server.cloud-refresh-ephem-42lwq-59ac7c5b6a0c144b63d34c29d8ad6aa7-0000.us-south.containers.appdomain.cloud");
-  headers.append('Access-Control-Allow-Credentials', 'true');
-
-  headers.append('GET', 'POST', 'OPTIONS');
   //increase counter
   console.log("url:"+url)
   const start_log = () => {
   intervalIDRef.current = setInterval(() => {
     console.log(message);
-    fetch(url, {mode:'cors',headers: headers})
+    fetch(url, {mode:'cors'})
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     setCounter(count => count + 1);
